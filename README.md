@@ -79,6 +79,25 @@
     }
   </style>
 </head>
+
+<script>
+  document.querySelector('form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value;
+
+    const storedPassword = localStorage.getItem(username);
+
+    if (storedPassword && storedPassword === password) {
+      alert('Login successful!');
+      // Redirect or unlock access here
+      window.location.href = 'welcome.html'; // or dashboard.html
+    } else {
+      alert('Invalid username or password!');
+    }
+  });
+</script>
+
 <body>
 
   <div class="login-container">
